@@ -1,0 +1,121 @@
+[gd_scene load_steps=8 format=3 uid="uid://bug6htnqh072h"]
+
+[ext_resource type="Script" path="res://Scripts/Systems/Dialogue/DialogueManager.gd" id="1_dcuw1"]
+[ext_resource type="Script" path="res://Scripts/Systems/Dialogue/DialogueHolder.gd" id="2_3rkma"]
+[ext_resource type="Texture2D" uid="uid://c4dfru4f3e0v4" path="res://icon.svg" id="2_qpnsu"]
+[ext_resource type="Texture2D" uid="uid://bvu4mmwpkdvhe" path="res://image (1).png" id="4_q563w"]
+
+[sub_resource type="Animation" id="Animation_bb6ho"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialogue Text:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_vkydn"]
+resource_name = "TypeWriterEffect"
+length = 0.25
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dialogue Text:visible_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r8yd3"]
+_data = {
+"RESET": SubResource("Animation_bb6ho"),
+"TypeWriterEffect": SubResource("Animation_vkydn")
+}
+
+[node name="Dialogue" type="Control" node_paths=PackedStringArray("ex")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dcuw1")
+ex = NodePath("CanvasLayer")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("2_3rkma")
+lineCount = 3
+lines = Array[String](["Welp", "An attempt", "Not sure how long this really has to be before it gets fast honestly."])
+speakers = Array[String](["Helix", "Matt", "Matt"])
+textures = Array[Texture2D]([ExtResource("2_qpnsu"), ExtResource("4_q563w"), ExtResource("4_q563w")])
+
+[node name="PanelContainer" type="Panel" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_top = 0.678704
+anchor_right = 0.998958
+anchor_bottom = 0.999074
+metadata/_edit_use_anchors_ = true
+
+[node name="Portrait" type="TextureRect" parent="CanvasLayer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 27.0
+offset_top = -230.0
+offset_right = 244.0
+offset_bottom = -13.0
+
+[node name="Speaker name" type="RichTextLabel" parent="CanvasLayer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0187696
+anchor_top = 0.0520231
+anchor_right = 0.348279
+anchor_bottom = 0.228324
+theme_override_font_sizes/normal_font_size = 40
+text = "Probably the longest name ever"
+fit_content = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Dialogue Text" type="RichTextLabel" parent="CanvasLayer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+anchor_left = 0.0187696
+anchor_top = 0.364162
+anchor_right = 0.901981
+anchor_bottom = 0.898844
+theme_override_font_sizes/normal_font_size = 27
+fit_content = true
+visible_characters = 0
+visible_ratio = 0.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Continue button" type="Button" parent="CanvasLayer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_left = 0.913451
+anchor_top = 0.742775
+anchor_right = 0.986444
+anchor_bottom = 0.887283
+theme_override_font_sizes/font_size = 30
+text = "Continue"
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/PanelContainer"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_r8yd3")
+}

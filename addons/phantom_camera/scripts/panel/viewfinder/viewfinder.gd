@@ -5,7 +5,6 @@ extends Control
 
 const _constants = preload("res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_constants.gd")
 
-# TODO - Should be in a central location
 const _camera_2d_icon: CompressedTexture2D = preload("res://addons/phantom_camera/icons/viewfinder/Camera2DIcon.svg")
 const _camera_3d_icon: CompressedTexture2D = preload("res://addons/phantom_camera/icons/viewfinder/Camera3DIcon.svg")
 const _pcam_host_icon: CompressedTexture2D = preload("res://addons/phantom_camera/icons/phantom_camera_host.svg")
@@ -166,7 +165,7 @@ func _settings_changed() -> void:
 	## Applies Project Settings to Viewport
 	sub_viewport.canvas_item_default_texture_filter = ProjectSettings.get_setting("rendering/textures/canvas_textures/default_texture_filter")
 
-	# TODO - Add resizer for Framed Viewfinder
+
 
 
 func _node_added_or_removed(_node: Node) -> void:

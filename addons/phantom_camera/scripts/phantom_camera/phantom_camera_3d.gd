@@ -772,7 +772,7 @@ func process_logic(delta: float) -> void:
 		match inactive_update_mode:
 			InactiveUpdateMode.NEVER: return
 			# InactiveUpdateMode.EXPONENTIALLY:
-			# TODO - Trigger positional updates less frequently as more PCams gets added
+
 
 	if _should_follow:
 		_follow(delta)
@@ -810,7 +810,7 @@ func process_logic(delta: float) -> void:
 func _follow(delta: float) -> void:
 	var follow_position: Vector3
 
-	var follow_target_node: Node3D = self # TODO - Think this can be removed
+	var follow_target_node: Node3D = self
 
 	match follow_mode:
 		FollowMode.GLUED:
@@ -1326,7 +1326,7 @@ func get_pcam_host_owner() -> PhantomCameraHost:
 
 ## Assigns new [member priority] value.
 func set_priority(value: int) -> void:
-	priority = abs(value) # TODO - Make any minus values be 0
+	priority = abs(value)
 	if _has_valid_pcam_owner():
 		get_pcam_host_owner().pcam_priority_updated(self)
 ## Gets current [param Priority] value.
@@ -1508,7 +1508,7 @@ func get_follow_damping() -> bool:
 
 ## Assigns new [member follow_damping_value] value.
 func set_follow_damping_value(value: Vector3) -> void:
-	## TODO - Should be using @export_range once minimum version support is Godot 4.3
+
 	if value.x < 0: value.x = 0
 	elif value.y < 0: value.y = 0
 	elif value.z < 0: value.z = 0

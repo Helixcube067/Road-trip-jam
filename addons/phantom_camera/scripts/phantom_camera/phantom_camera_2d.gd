@@ -383,7 +383,7 @@ var _follow_axis_lock_value: Vector2 = Vector2.ZERO
 @export var limit_margin: Vector4i:
 	set = set_limit_margin,
 	get = get_limit_margin
-#@export var limit_smoothed: bool = false: # TODO - Needs proper support
+#@export var limit_smoothed: bool = false:
 	#set = set_limit_smoothing,
 	#get = get_limit_smoothing
 
@@ -625,7 +625,7 @@ func process_logic(delta: float) -> void:
 				if _limit_inactive_pcam:
 					global_position = _set_limit_clamp_position(global_position)
 			# InactiveUpdateMode.EXPONENTIALLY:
-			# TODO - Trigger positional updates less frequently as more PCams gets added
+
 
 	_limit_checker()
 #	if not Engine.is_editor_hint(): print(_should_follow)
@@ -646,7 +646,7 @@ func process_logic(delta: float) -> void:
 
 
 func _limit_checker() -> void:
-	## TODO - Needs to see if this can be triggerd only from CollisionShape2D Transform changes
+
 	if not Engine.is_editor_hint(): return
 	if draw_limits:
 		update_limit_all_sides()
@@ -988,7 +988,7 @@ func update_limit_all_sides() -> void:
 	elif _limit_node is TileMap or _limit_node.is_class("TileMapLayer"):
 		var tile_map := _limit_node
 
-		if not tile_map.tile_set: return # TODO: This should be removed once https://github.com/godotengine/godot/issues/96898 is resolved
+		if not tile_map.tile_set: return
 
 		var tile_map_size: Vector2 = Vector2(tile_map.get_used_rect().size) * Vector2(tile_map.tile_set.tile_size) * tile_map.get_scale()
 		var tile_map_position: Vector2 = tile_map.global_position + Vector2(tile_map.get_used_rect().position) * Vector2(tile_map.tile_set.tile_size) * tile_map.get_scale()
@@ -1314,7 +1314,6 @@ func get_follow_damping() -> bool:
 
 ## Assigns new Damping value.
 func set_follow_damping_value(value: Vector2) -> void:
-	## TODO - Should be using @export_range once minimum version support is Godot 4.3
 	if value.x < 0: value.x = 0
 	elif value.y < 0: value.y = 0
 	follow_damping_value = value
@@ -1511,7 +1510,7 @@ func set_limit_target(value: NodePath) -> void:
 
 ## Get [member limit_target] node.
 func get_limit_target() -> NodePath:
-	if not limit_target: # TODO - Fixes an spam error if if limit_taret is empty
+	if not limit_target:
 		return NodePath("")
 	else:
 		return limit_target

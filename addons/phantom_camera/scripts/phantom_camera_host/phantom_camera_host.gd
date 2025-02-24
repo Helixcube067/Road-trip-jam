@@ -530,7 +530,6 @@ func _check_pcam_physics() -> void:
 		Engine.get_version_info().minor >= 3:
 			if _active_pcam_2d.get_follow_target_physics_based():
 				_follow_target_physics_based = true
-				## TODO - Temporary solution to support Godot 4.2
 				## Remove line below and uncomment the following once Godot 4.3 is min verison.
 				camera_2d.call("reset_physics_interpolation")
 				camera_2d.set("physics_interpolation_mode", 1)
@@ -542,7 +541,7 @@ func _check_pcam_physics() -> void:
 					camera_2d.process_callback = Camera2D.CAMERA2D_PROCESS_IDLE
 			else:
 				_follow_target_physics_based = false
-				## TODO - Temporary solution to support Godot 4.2
+
 				## Remove line below and uncomment the following once Godot 4.3 is min verison.
 				camera_2d.set("physics_interpolation_mode", 0)
 				#camera_2d.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_INHERIT
@@ -557,7 +556,7 @@ func _check_pcam_physics() -> void:
 			if get_tree().physics_interpolation or _active_pcam_3d.get_follow_target_physics_based():
 				#if get_tree().physics_interpolation or _active_pcam_3d.get_follow_target_physics_based():
 				_follow_target_physics_based = true
-				## TODO - Temporary solution to support Godot 4.2
+
 				## Remove line below and uncomment the following once Godot 4.3 is min verison.
 				camera_3d.call("reset_physics_interpolation")
 				camera_3d.set("physics_interpolation_mode", 1)
@@ -565,7 +564,7 @@ func _check_pcam_physics() -> void:
 				#camera_3d.physics_interpolation_mode = Node.PHYSICS_INTERPOLATION_MODE_ON
 			else:
 				_follow_target_physics_based = false
-				## TODO - Temporary solution to support Godot 4.2
+
 				## Remove line below and uncomment the following once Godot 4.3 is min verison.
 				camera_3d.set("physics_interpolation_mode", 0)
 
@@ -579,7 +578,7 @@ func _find_pcam_with_highest_priority() -> void:
 		_active_pcam_missing = false
 
 
-## TODO - For 0.8 release
+
 #func _find_pcam_with_highest_priority() -> void:
 	#var highest_priority_pcam: Node
 	#for pcam in _pcam_list:
@@ -664,7 +663,7 @@ func _pcam_follow(_delta: float) -> void:
 		_show_viewfinder_in_play()
 		_viewfinder_needed_check = false
 
-	# TODO - Should be able to find a more efficient way using signals
+
 	if Engine.is_editor_hint():
 		if not _is_2D:
 			if _active_pcam_3d.camera_3d_resource != null:

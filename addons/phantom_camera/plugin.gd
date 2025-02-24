@@ -47,7 +47,7 @@ func _enter_tree() -> void:
 	add_node_3d_gizmo_plugin(pcam_3d_gizmo_plugin)
 	add_node_3d_gizmo_plugin(pcam_3d_noise_emitter_gizmo_plugin)
 
-	# TODO - Should be disabled unless in editor
+
 	# Viewfinder
 	editor_panel_instance = EditorPanel.instantiate()
 	editor_panel_instance.editor_plugin = self

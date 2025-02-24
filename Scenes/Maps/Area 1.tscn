@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://2g102h147q4w"]
+
+[ext_resource type="PackedScene" uid="uid://gtktw85pan5s" path="res://Scenes/Entities/Player/PlayerMovement.tscn" id="1_psstf"]
+[ext_resource type="PackedScene" uid="uid://cnfuoyynimiuk" path="res://Scenes/UI/PauseMenu.tscn" id="1_xtfh2"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_7kyso"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_3v22g"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_ffrec"]
+[ext_resource type="Texture2D" uid="uid://c4dfru4f3e0v4" path="res://icon.svg" id="6_ip8xt"]
+[ext_resource type="PackedScene" uid="uid://bug6htnqh072h" path="res://Scenes/UI/DialogueUI.tscn" id="7_5eob1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x8m8y"]
+size = Vector2(1910, 1071)
+
+[sub_resource type="Resource" id="Resource_8sxp1"]
+script = ExtResource("4_ffrec")
+duration = 1.0
+transition = 0
+ease = 2
+
+[node name="Area1" type="Node2D"]
+
+[node name="Map determiner" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(957, 536.5)
+shape = SubResource("RectangleShape2D_x8m8y")
+one_way_collision = true
+
+[node name="Test environment" type="ColorRect" parent="."]
+offset_right = 1914.0
+offset_bottom = 1069.0
+mouse_filter = 2
+color = Color(0.0906243, 0.404959, 0.234655, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Environment pieces" type="Node2D" parent="Test environment"]
+
+[node name="ColorRect" type="ColorRect" parent="Test environment/Environment pieces"]
+offset_left = 739.0
+offset_top = 154.0
+offset_right = 883.0
+offset_bottom = 278.0
+mouse_filter = 2
+color = Color(0.357438, 0.323748, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Test environment/Environment pieces"]
+offset_left = 312.0
+offset_top = 538.0
+offset_right = 456.0
+offset_bottom = 662.0
+mouse_filter = 2
+color = Color(0.357438, 0.323748, 0, 1)
+
+[node name="PlayerMovement" parent="." instance=ExtResource("1_psstf")]
+position = Vector2(1, 34)
+speed = 100.0
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(302, 140)
+texture = ExtResource("6_ip8xt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+physics_interpolation_mode = 1
+position = Vector2(322, 181)
+zoom = Vector2(3, 3)
+process_callback = 0
+limit_left = 2
+limit_top = 1
+limit_right = 1912
+limit_bottom = 1072
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("2_7kyso")
+
+[node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
+top_level = true
+position = Vector2(322, 181)
+script = ExtResource("3_3v22g")
+follow_mode = 2
+follow_target = NodePath("../PlayerMovement")
+zoom = Vector2(3, 3)
+tween_resource = SubResource("Resource_8sxp1")
+follow_damping = true
+follow_damping_value = Vector2(0.2, 0.2)
+limit_target = NodePath("../Map determiner")
+
+[node name="Pause Menu" parent="." instance=ExtResource("1_xtfh2")]
+
+[node name="Dialogue" parent="." instance=ExtResource("7_5eob1")]
