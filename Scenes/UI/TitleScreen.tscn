@@ -1,26 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://dry20r32wf070"]
+[gd_scene load_steps=3 format=3 uid="uid://dry20r32wf070"]
 
 [ext_resource type="Script" path="res://Scripts/UI folder/MainMenu.gd" id="1_xb52p"]
+[ext_resource type="PackedScene" uid="uid://cahgfsqr2ptqw" path="res://Scenes/UI/LoadingScreen.tscn" id="3_e1ihw"]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" node_paths=PackedStringArray("loadScreen")]
 layout_mode = 3
 anchor_right = 1.00104
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_xb52p")
-switchTo = "res://Scenes/Maps/Area 1.tscn"
+switchTo = "C:/Users/helix/Desktop/Godot games/roadtripjam/Scenes/Maps/Area 1.tscn"
+loadScreen = NodePath("CanvasLayer/Loading screen")
 metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Panel" type="Panel" parent="CanvasLayer"]
+[node name="Main menu" type="Panel" parent="CanvasLayer"]
+unique_name_in_owner = true
 anchors_preset = -1
 anchor_right = 1.00208
 anchor_bottom = 1.00278
 metadata/_edit_use_anchors_ = true
 
-[node name="Title" type="Label" parent="CanvasLayer/Panel"]
+[node name="Title" type="Label" parent="CanvasLayer/Main menu"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -33,7 +36,7 @@ theme_override_font_sizes/font_size = 80
 text = "Road trip jam"
 horizontal_alignment = 1
 
-[node name="Main menu" type="MarginContainer" parent="CanvasLayer/Panel"]
+[node name="Main menu" type="MarginContainer" parent="CanvasLayer/Main menu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -47,27 +50,27 @@ offset_bottom = 119.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Buttons" type="VBoxContainer" parent="CanvasLayer/Panel/Main menu"]
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayer/Main menu/Main menu"]
 unique_name_in_owner = true
 layout_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Play button" type="Button" parent="CanvasLayer/Panel/Main menu/Buttons"]
+[node name="Play button" type="Button" parent="CanvasLayer/Main menu/Main menu/Buttons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Play"
 
-[node name="Load button" type="Button" parent="CanvasLayer/Panel/Main menu/Buttons"]
+[node name="Load button" type="Button" parent="CanvasLayer/Main menu/Main menu/Buttons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Load game"
 
-[node name="Quit button" type="Button" parent="CanvasLayer/Panel/Main menu/Buttons"]
+[node name="Quit button" type="Button" parent="CanvasLayer/Main menu/Main menu/Buttons"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Quit"
 
-[node name="Save System" type="Control" parent="CanvasLayer/Panel"]
+[node name="Save System" type="Control" parent="CanvasLayer/Main menu"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -75,7 +78,7 @@ anchor_right = 0.997405
 anchor_bottom = 0.998151
 metadata/_edit_use_anchors_ = true
 
-[node name="Back button" type="Button" parent="CanvasLayer/Panel/Save System"]
+[node name="Back button" type="Button" parent="CanvasLayer/Main menu/Save System"]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -87,7 +90,12 @@ grow_vertical = 0
 theme_override_font_sizes/font_size = 65
 text = "Back "
 
-[connection signal="pressed" from="CanvasLayer/Panel/Main menu/Buttons/Play button" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Panel/Main menu/Buttons/Load button" to="." method="_on_load_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Panel/Main menu/Buttons/Quit button" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Panel/Save System/Back button" to="." method="_on_back_button_pressed"]
+[node name="Loading screen" parent="CanvasLayer" instance=ExtResource("3_e1ihw")]
+unique_name_in_owner = true
+visible = false
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="CanvasLayer/Main menu/Main menu/Buttons/Play button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Main menu/Main menu/Buttons/Load button" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Main menu/Main menu/Buttons/Quit button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Main menu/Save System/Back button" to="." method="_on_back_button_pressed"]

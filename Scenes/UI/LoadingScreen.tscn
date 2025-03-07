@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://cahgfsqr2ptqw"]
+
+[ext_resource type="Texture2D" uid="uid://dd38mcqy2phdl" path="res://GhgMgHkboAAeL4-.jpg" id="1_qgtu8"]
+[ext_resource type="Script" path="res://LoadingScreen.gd" id="1_w71cd"]
+
+[node name="Loading screen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_w71cd")
+path = "C:/Users/helix/Desktop/Godot games/roadtripjam/Scenes/Maps/Area 1.tscn"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="Background" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.00185
+texture = ExtResource("1_qgtu8")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Percent loaded text" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.470833
+anchor_top = 0.846296
+anchor_right = 0.544271
+anchor_bottom = 0.912037
+theme_override_font_sizes/font_size = 50
+text = "100%"
+metadata/_edit_use_anchors_ = true
+
+[node name="Load bar" type="ProgressBar" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.25625
+anchor_top = 0.716667
+anchor_right = 0.781771
+anchor_bottom = 0.840741
+max_value = 1.0
+step = 0.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true

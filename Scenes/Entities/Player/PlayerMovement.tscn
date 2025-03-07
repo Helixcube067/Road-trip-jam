@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6klac"]
 size = Vector2(40, 40)
 
-[node name="PlayerMovement" type="CharacterBody2D"]
+[node name="PlayerMovement" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(1, -1)
 script = ExtResource("1_gbakj")
 

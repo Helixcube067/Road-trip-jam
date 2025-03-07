@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cnfuoyynimiuk"]
+[gd_scene load_steps=4 format=3 uid="uid://dh0lcm20254i1"]
 
 [ext_resource type="Script" path="res://Scripts/UI folder/PauseMenu.gd" id="1_r6rdq"]
 [ext_resource type="Shader" path="res://Scenes/UI/OldBlurEffect.gdshader" id="2_wgckk"]

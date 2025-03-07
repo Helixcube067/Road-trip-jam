@@ -1,9 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://bug6htnqh072h"]
+[gd_scene load_steps=5 format=3 uid="uid://bug6htnqh072h"]
 
 [ext_resource type="Script" path="res://Scripts/Systems/Dialogue/DialogueManager.gd" id="1_dcuw1"]
-[ext_resource type="Script" path="res://Scripts/Systems/Dialogue/DialogueHolder.gd" id="2_3rkma"]
-[ext_resource type="Texture2D" uid="uid://c4dfru4f3e0v4" path="res://icon.svg" id="2_qpnsu"]
-[ext_resource type="Texture2D" uid="uid://bvu4mmwpkdvhe" path="res://image (1).png" id="4_q563w"]
 
 [sub_resource type="Animation" id="Animation_bb6ho"]
 length = 0.001
@@ -43,7 +40,7 @@ _data = {
 "TypeWriterEffect": SubResource("Animation_vkydn")
 }
 
-[node name="Dialogue" type="Control" node_paths=PackedStringArray("ex")]
+[node name="Dialogue" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,16 +48,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_dcuw1")
-ex = NodePath("CanvasLayer")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 visible = false
-script = ExtResource("2_3rkma")
-lineCount = 3
-lines = Array[String](["Welp", "An attempt", "Not sure how long this really has to be before it gets fast honestly."])
-speakers = Array[String](["Helix", "Matt", "Matt"])
-textures = Array[Texture2D]([ExtResource("2_qpnsu"), ExtResource("4_q563w"), ExtResource("4_q563w")])
 
 [node name="PanelContainer" type="Panel" parent="CanvasLayer"]
 anchors_preset = -1

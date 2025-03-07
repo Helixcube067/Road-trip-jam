@@ -1,6 +1,7 @@
 extends SceneHelper
 
 func _on_play_button_pressed():
+	switchUI(%"Loading screen", %"Main menu");
 	changeScene(switchTo);
 
 func _on_load_button_pressed():

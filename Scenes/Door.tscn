@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://dk6jo8iq8fj0q"]
+
+[ext_resource type="Script" path="res://Scripts/Systems/Scene Changing/Door.gd" id="1_meour"]
+[ext_resource type="Texture2D" uid="uid://c4dfru4f3e0v4" path="res://icon.svg" id="2_w7w0q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wpx8m"]
+size = Vector2(97, 97)
+
+[sub_resource type="Animation" id="Animation_lyibe"]
+resource_name = "Fade in"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6n6ih"]
+_data = {
+"Fade in": SubResource("Animation_lyibe")
+}
+
+[node name="Door" type="Area2D"]
+script = ExtResource("1_meour")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_wpx8m")
+
+[node name="TextureRect" type="TextureRect" parent="CollisionShape2D"]
+offset_left = -49.0
+offset_top = -48.0
+offset_right = 48.0
+offset_bottom = 48.0
+texture = ExtResource("2_w7w0q")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Destination" type="Marker2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6n6ih")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
