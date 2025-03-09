@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dk6jo8iq8fj0q"]
+[gd_scene load_steps=7 format=3 uid="uid://dk6jo8iq8fj0q"]
 
 [ext_resource type="Script" path="res://Scripts/Systems/Scene Changing/Door.gd" id="1_meour"]
 [ext_resource type="Texture2D" uid="uid://c4dfru4f3e0v4" path="res://icon.svg" id="2_w7w0q"]
+[ext_resource type="PackedScene" uid="uid://cxfimvr7s6idc" path="res://Scenes/UI/Fade Transition.tscn" id="3_pxsjr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wpx8m"]
 size = Vector2(97, 97)
@@ -14,8 +15,9 @@ _data = {
 "Fade in": SubResource("Animation_lyibe")
 }
 
-[node name="Door" type="Area2D"]
+[node name="Door" type="Area2D" node_paths=PackedStringArray("fader")]
 script = ExtResource("1_meour")
+fader = NodePath("Fade Transition")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_wpx8m")
@@ -35,5 +37,8 @@ metadata/_edit_use_anchors_ = true
 libraries = {
 "": SubResource("AnimationLibrary_6n6ih")
 }
+
+[node name="Fade Transition" parent="." instance=ExtResource("3_pxsjr")]
+unique_name_in_owner = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

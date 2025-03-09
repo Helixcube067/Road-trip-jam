@@ -119,7 +119,6 @@ limit_target = NodePath("../Map determiner")
 [node name="Scene Changer" type="Node" parent="."]
 script = ExtResource("11_fojsu")
 
-[node name="Fade Transition" parent="." node_paths=PackedStringArray("sceneManager") instance=ExtResource("12_ecvou")]
-sceneManager = NodePath("../Scene Changer")
+[node name="Fade Transition" parent="." instance=ExtResource("12_ecvou")]
 
 [editable path="Door/Door_2"]

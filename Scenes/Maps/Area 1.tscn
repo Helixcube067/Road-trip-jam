@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://2g102h147q4w"]
+[gd_scene load_steps=11 format=3 uid="uid://2g102h147q4w"]
 
 [ext_resource type="PackedScene" uid="uid://gtktw85pan5s" path="res://Scenes/Entities/Player/PlayerMovement.tscn" id="1_psstf"]
 [ext_resource type="PackedScene" uid="uid://dh0lcm20254i1" path="res://Scenes/UI/PauseMenu.tscn" id="1_xtfh2"]
@@ -8,8 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://c4dfru4f3e0v4" path="res://icon.svg" id="6_ip8xt"]
 [ext_resource type="PackedScene" uid="uid://bug6htnqh072h" path="res://Scenes/UI/DialogueUI.tscn" id="7_5eob1"]
 [ext_resource type="PackedScene" uid="uid://dk6jo8iq8fj0q" path="res://Scenes/Door.tscn" id="8_jl6jx"]
-[ext_resource type="Script" path="res://Scripts/Systems/Scene Changing/SceneChanger.gd" id="9_35vug"]
-[ext_resource type="PackedScene" uid="uid://cxfimvr7s6idc" path="res://Scenes/UI/Fade Transition.tscn" id="10_7wywb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8m8y"]
 size = Vector2(1910, 1071)
@@ -104,11 +102,5 @@ limit_target = NodePath("../Map determiner")
 [node name="Pause Menu" parent="." instance=ExtResource("1_xtfh2")]
 
 [node name="Dialogue" parent="." instance=ExtResource("7_5eob1")]
-
-[node name="Scene Changer" type="Node" parent="."]
-script = ExtResource("9_35vug")
-
-[node name="Fade Transition" parent="." node_paths=PackedStringArray("sceneManager") instance=ExtResource("10_7wywb")]
-sceneManager = NodePath("../Scene Changer")
 
 [editable path="Doors/Door 1"]

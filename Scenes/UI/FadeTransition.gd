@@ -1,15 +1,17 @@
-extends CanvasLayer
-#TODO Need to connect the signal for the fade in and out
-@export var sceneManager : Node
-var playerHolder
+extends SceneHelper
+class_name FadeTransition
 
 func _ready():
-	get_tree().get_first_node_in_group("Player").Transitioned.connect(Transition)
-	sceneManager.Transitioned.connect(Transition)
+	%AnimationPlayer.play("Fade in")
+	await %AnimationPlayer.animation_finished
 	
-func Transition(animName : String):
-	print(animName)
-	if(animName == "FadeOut"):
-		%AnimationPlayer.play("Fade out")
-	elif(animName == "FadeIn"):
-		%AnimationPlayer.play("Fade in")
+func Fadeout():
+	%AnimationPlayer.play("Fade out")
+	await %AnimationPlayer.animation_finished
+	
+func FadeHelper(destination):
+	Fadeout()
+	get_tree().change_scene_to_file(destination)
+
+func FadeScene(destination):
+	call_deferred("FadeHelper", destination)

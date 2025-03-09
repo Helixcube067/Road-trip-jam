@@ -19,7 +19,7 @@ config/icon="res://icon.svg"
 
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
 StateMachine="*res://Scripts/Systems/State Machine/StateMachine.gd"
-SceneChangeHelper="*res://Scripts/Systems/Scene Changing/SceneChangeHelper.gd"
+LocationHelper="*res://Scripts/Systems/Scene Changing/LocationHelper.gd"
 
 [debug]
 

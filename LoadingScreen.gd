@@ -7,7 +7,7 @@ var progress : Array
 var currentlyLoading : bool = false
 func _ready():
 	ResourceLoader.load_threaded_request(path);
-		
+
 func _process(_delta):
 	if(currentlyLoading):
 		%CanvasLayer.show()
