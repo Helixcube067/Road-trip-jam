@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://di0etxiodob68"]
 
 [ext_resource type="Texture2D" uid="uid://bs2qvq2ydahwh" path="res://addons/imrp/icons/Search.svg" id="1"]
-[ext_resource type="Script" path="res://addons/imrp/src/scene/ImprovedResourcePicker.gd" id="2"]
-[ext_resource type="Script" path="res://addons/imrp/src/scene/Tree.gd" id="3"]
+[ext_resource type="Script" uid="uid://cf2pmi6kx37f1" path="res://addons/imrp/src/scene/ImprovedResourcePicker.gd" id="2"]
+[ext_resource type="Script" uid="uid://ik5d077fllnp" path="res://addons/imrp/src/scene/Tree.gd" id="3"]
 
 [node name="ImprovedResourcePicker" type="ConfirmationDialog"]
 dialog_hide_on_ok = false

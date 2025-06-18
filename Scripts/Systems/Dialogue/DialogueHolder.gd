@@ -1,9 +1,13 @@
 extends Node
 class_name dialogueHolder
 
+@export_group("Holder adjustments")
+@export var dictKey : String
+@export var playOnEnter : bool = false
+@export var battleAfter : bool = false
 @export_group("Dialogue assembly")
 @export var lineCount : int
-@export var lines : Array[String]
+@export_multiline var lines : Array[String]
 @export var speakers : Array[String] 
 @export var textures : Array[Texture2D]
 var inRange : bool = false
@@ -31,8 +35,15 @@ func QualityControl():
 
 func _on_body_entered(body):
 	if(body == get_tree().get_first_node_in_group("Player")):
-		inRange = true;
-		%ExclamationPoint.show()
+		if(playOnEnter):
+			if(DialogueCutsceneHelper.cutsceneDict.has(dictKey) == false):
+				if(StateMachine.CheckState(StateMachine.States.IDLE) && 
+				!StateMachine.CheckState(StateMachine.States.CONVERSATING)):
+					emit_signal("dialogueTriggered", self)
+					DialogueCutsceneHelper.cutsceneDict[dictKey] = true
+		else:
+			inRange = true;
+			%ExclamationPoint.show()
 		
 func _on_body_exited(body):
 	if(body == get_tree().get_first_node_in_group("Player")):

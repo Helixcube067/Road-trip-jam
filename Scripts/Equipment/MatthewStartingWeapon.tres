@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WeaponType" load_steps=2 format=3 uid="uid://cdv4nd0relln1"]
+
+[ext_resource type="Script" uid="uid://djo2rqwdpbbjy" path="res://Scripts/Equipment/Weapon.gd" id="1_essvr"]
+
+[resource]
+script = ExtResource("1_essvr")
+attack = 3
+AFFINITY = "Slash"
+TYPE = "Weapon"
+name = "Dull Knife"
+metadata/_custom_type_script = "uid://djo2rqwdpbbjy"

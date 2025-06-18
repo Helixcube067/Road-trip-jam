@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvu4mmwpkdvhe"
-path="res://.godot/imported/image (1).png-ec79ee2b76d462a48409254afc84e3b3.ctex"
+uid="uid://olwmo7dhguys"
+path="res://.godot/imported/ExclamationPoint.png-2fcf3854a2a9d41970564be41951927d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://image (1).png"
-dest_files=["res://.godot/imported/image (1).png-ec79ee2b76d462a48409254afc84e3b3.ctex"]
+source_file="res://Art/ExclamationPoint.png"
+dest_files=["res://.godot/imported/ExclamationPoint.png-2fcf3854a2a9d41970564be41951927d.ctex"]
 
 [params]
 

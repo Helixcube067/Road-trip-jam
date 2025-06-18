@@ -1,8 +1,7 @@
 extends Node
 class_name SceneHelper
 
-#TODO also look into how we did scene switching for keeping positions
-@export var switchTo : String
+@export_global_file var switchTo : String
 @export var loadScreen : loadingScreen
 
 func changeScene(destination):

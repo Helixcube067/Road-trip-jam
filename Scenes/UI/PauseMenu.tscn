@@ -1,11 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://dh0lcm20254i1"]
+[gd_scene load_steps=12 format=3 uid="uid://dh0lcm20254i1"]
 
-[ext_resource type="Script" path="res://Scripts/UI folder/PauseMenu.gd" id="1_r6rdq"]
-[ext_resource type="Shader" path="res://Scenes/UI/OldBlurEffect.gdshader" id="2_wgckk"]
+[ext_resource type="Script" uid="uid://b34jg1x585f3d" path="res://Scripts/UI folder/PauseMenu.gd" id="1_r6rdq"]
+[ext_resource type="Shader" uid="uid://58j6swlkmsrl" path="res://Scenes/UI/OldBlurEffect.gdshader" id="2_wgckk"]
+[ext_resource type="Script" uid="uid://m06mhmx3a2c" path="res://Scripts/UI folder/StatsMenu.gd" id="3_85qas"]
+[ext_resource type="Texture2D" uid="uid://6wxqhlrid5aw" path="res://Art/Party members/heismay-noctule-from-metaphor-refantazio-v0-vyuuqbpsfx4e1.png" id="3_238ko"]
+[ext_resource type="StyleBox" uid="uid://c3kaf1tjtu03t" path="res://Art/Styles/SliderCompliment.tres" id="4_djuuc"]
+[ext_resource type="StyleBox" uid="uid://bins6cmoogyye" path="res://Art/Styles/RedHPSlider.tres" id="5_85qas"]
+[ext_resource type="StyleBox" uid="uid://cm10lt70gt5hk" path="res://Art/Styles/MPSlider.tres" id="6_qjuxo"]
+[ext_resource type="Texture2D" uid="uid://bvu4mmwpkdvhe" path="res://Art/Party members/image (1).png" id="7_djuuc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3nvnb"]
 shader = ExtResource("2_wgckk")
 shader_parameter/amount = 2.5
+
+[sub_resource type="ImageTexture" id="ImageTexture_ftuca"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p8na2"]
 
 [node name="Pause Menu" type="Control"]
 layout_direction = 1
@@ -16,6 +26,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_r6rdq")
+metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
@@ -27,39 +38,315 @@ anchors_preset = -1
 anchor_right = 0.999479
 anchor_bottom = 0.993519
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="Pause menu landing" type="MarginContainer" parent="CanvasLayer"]
-offset_left = 795.0
-offset_top = 350.0
-offset_right = 1131.0
-offset_bottom = 594.0
+unique_name_in_owner = true
+anchors_preset = -1
+anchor_left = 0.414063
+anchor_top = 0.324074
+anchor_right = 0.589063
+anchor_bottom = 0.55
+offset_top = 3.05176e-05
 mouse_filter = 0
+metadata/_edit_use_anchors_ = true
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Pause menu landing"]
+[node name="Main button navigation" type="PanelContainer" parent="CanvasLayer/Pause menu landing"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Pause menu landing/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Pause menu landing/Main button navigation"]
 layout_mode = 2
 mouse_filter = 0
 
-[node name="Continue button" type="Button" parent="CanvasLayer/Pause menu landing/PanelContainer/VBoxContainer"]
+[node name="Continue button" type="Button" parent="CanvasLayer/Pause menu landing/Main button navigation/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Continue"
 
-[node name="Stats button" type="Button" parent="CanvasLayer/Pause menu landing/PanelContainer/VBoxContainer"]
+[node name="Stats button" type="Button" parent="CanvasLayer/Pause menu landing/Main button navigation/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Stats"
 
-[node name="Quit button" type="Button" parent="CanvasLayer/Pause menu landing/PanelContainer/VBoxContainer"]
+[node name="Quit button" type="Button" parent="CanvasLayer/Pause menu landing/Main button navigation/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Quit"
 
-[connection signal="pressed" from="CanvasLayer/Pause menu landing/PanelContainer/VBoxContainer/Continue button" to="." method="_on_continue_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Pause menu landing/PanelContainer/VBoxContainer/Stats button" to="." method="_on_stats_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Pause menu landing/PanelContainer/VBoxContainer/Quit button" to="." method="_on_quit_button_pressed"]
+[node name="Stats" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 3
+anchor_right = 1.00052
+anchor_bottom = 0.998148
+offset_top = 3.0
+offset_right = 0.00012207
+offset_bottom = 3.0
+script = ExtResource("3_85qas")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+
+[node name="Character buttons" type="VBoxContainer" parent="CanvasLayer/Stats"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0322749
+anchor_top = 0.0213358
+anchor_right = 0.257158
+anchor_bottom = 0.565863
+offset_right = -3.05176e-05
+theme_override_constants/separation = 85
+metadata/_edit_use_anchors_ = true
+
+[node name="Matthew Container" type="VBoxContainer" parent="CanvasLayer/Stats/Character buttons"]
+layout_mode = 2
+
+[node name="MatthewButton" type="Button" parent="CanvasLayer/Stats/Character buttons/Matthew Container"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 65
+text = "Matthew"
+icon = ExtResource("7_djuuc")
+alignment = 0
+expand_icon = true
+
+[node name="HP holder" type="VBoxContainer" parent="CanvasLayer/Stats/Character buttons/Matthew Container"]
+layout_mode = 2
+
+[node name="Matthew hp text" type="Label" parent="CanvasLayer/Stats/Character buttons/Matthew Container/HP holder"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "HP: 350"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Stats/Character buttons/Matthew Container/HP holder"]
+layout_mode = 2
+alignment = 1
+
+[node name="Matthew HP slider" type="HSlider" parent="CanvasLayer/Stats/Character buttons/Matthew Container/HP holder/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_icons/grabber_disabled = SubResource("ImageTexture_ftuca")
+theme_override_styles/slider = ExtResource("4_djuuc")
+theme_override_styles/grabber_area = ExtResource("5_85qas")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_p8na2")
+value = 55.0
+editable = false
+scrollable = false
+metadata/_edit_use_anchors_ = true
+
+[node name="MP holder" type="VBoxContainer" parent="CanvasLayer/Stats/Character buttons/Matthew Container"]
+layout_mode = 2
+
+[node name="Matthew mp text" type="Label" parent="CanvasLayer/Stats/Character buttons/Matthew Container/MP holder"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "MP: 350"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Stats/Character buttons/Matthew Container/MP holder"]
+layout_mode = 2
+alignment = 1
+
+[node name="Matthew MP slider" type="HSlider" parent="CanvasLayer/Stats/Character buttons/Matthew Container/MP holder/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_icons/grabber_disabled = SubResource("ImageTexture_ftuca")
+theme_override_styles/slider = ExtResource("4_djuuc")
+theme_override_styles/grabber_area = ExtResource("6_qjuxo")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_p8na2")
+value = 30.0
+editable = false
+scrollable = false
+
+[node name="Andrew Container" type="VBoxContainer" parent="CanvasLayer/Stats/Character buttons"]
+layout_mode = 2
+
+[node name="AndrewButton" type="Button" parent="CanvasLayer/Stats/Character buttons/Andrew Container"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 65
+text = "Andrew"
+icon = ExtResource("3_238ko")
+alignment = 0
+expand_icon = true
+
+[node name="HP holder" type="VBoxContainer" parent="CanvasLayer/Stats/Character buttons/Andrew Container"]
+layout_mode = 2
+
+[node name="Andrew hp text" type="Label" parent="CanvasLayer/Stats/Character buttons/Andrew Container/HP holder"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "HP: 350"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Stats/Character buttons/Andrew Container/HP holder"]
+layout_mode = 2
+alignment = 1
+
+[node name="Andrew HP slider" type="HSlider" parent="CanvasLayer/Stats/Character buttons/Andrew Container/HP holder/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_icons/grabber_disabled = SubResource("ImageTexture_ftuca")
+theme_override_styles/slider = ExtResource("4_djuuc")
+theme_override_styles/grabber_area = ExtResource("5_85qas")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_p8na2")
+value = 30.0
+editable = false
+scrollable = false
+metadata/_edit_use_anchors_ = true
+
+[node name="MP holder" type="VBoxContainer" parent="CanvasLayer/Stats/Character buttons/Andrew Container"]
+layout_mode = 2
+
+[node name="Andrew mp text" type="Label" parent="CanvasLayer/Stats/Character buttons/Andrew Container/MP holder"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "MP: 350"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Stats/Character buttons/Andrew Container/MP holder"]
+layout_mode = 2
+alignment = 1
+
+[node name="Andrew MP slider" type="HSlider" parent="CanvasLayer/Stats/Character buttons/Andrew Container/MP holder/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_icons/grabber_disabled = SubResource("ImageTexture_ftuca")
+theme_override_styles/slider = ExtResource("4_djuuc")
+theme_override_styles/grabber_area = ExtResource("6_qjuxo")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_p8na2")
+value = 30.0
+editable = false
+scrollable = false
+
+[node name="Stats container" type="Panel" parent="CanvasLayer/Stats"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.445601
+anchor_top = 0.0482375
+anchor_right = 0.682977
+anchor_bottom = 0.602041
+metadata/_edit_use_anchors_ = true
+
+[node name="Icon" type="TextureRect" parent="CanvasLayer/Stats/Stats container"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.04606
+anchor_right = 1.73246
+anchor_bottom = 0.524288
+offset_bottom = 3.05176e-05
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Stats text holder" type="VBoxContainer" parent="CanvasLayer/Stats/Stats container"]
+layout_mode = 0
+anchor_right = 0.997807
+anchor_bottom = 0.99665
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Stats/Stats container/Stats text holder"]
+layout_mode = 2
+alignment = 1
+
+[node name="HSplitContainer" type="HSplitContainer" parent="CanvasLayer/Stats/Stats container/Stats text holder/HBoxContainer"]
+layout_mode = 2
+
+[node name="Atk label" type="Label" parent="CanvasLayer/Stats/Stats container/Stats text holder/HBoxContainer/HSplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "ATK: "
+
+[node name="Def label" type="Label" parent="CanvasLayer/Stats/Stats container/Stats text holder/HBoxContainer/HSplitContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "DEF: "
+
+[node name="Name label" type="Label" parent="CanvasLayer/Stats/Stats container/Stats text holder"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Name: "
+
+[node name="Lvl label" type="Label" parent="CanvasLayer/Stats/Stats container/Stats text holder"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Lvl: "
+
+[node name="Exp label" type="Label" parent="CanvasLayer/Stats/Stats container/Stats text holder"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Exp: "
+
+[node name="HP label" type="Label" parent="CanvasLayer/Stats/Stats container/Stats text holder"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "HP: "
+
+[node name="MP label" type="Label" parent="CanvasLayer/Stats/Stats container/Stats text holder"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "MP: "
+
+[node name="Strength label" type="Label" parent="CanvasLayer/Stats/Stats container/Stats text holder"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Strength: "
+
+[node name="Endurance label" type="Label" parent="CanvasLayer/Stats/Stats container/Stats text holder"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Endurance: "
+
+[node name="Dexterity label" type="Label" parent="CanvasLayer/Stats/Stats container/Stats text holder"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Dexterity: "
+
+[node name="Speed" type="Label" parent="CanvasLayer/Stats/Stats container/Stats text holder"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Speed: "
+
+[node name="Stats back button" type="Button" parent="CanvasLayer/Stats"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0328807
+anchor_top = 0.857419
+anchor_right = 0.1245
+anchor_bottom = 0.950926
+offset_left = -0.163799
+offset_top = -1.29803
+offset_right = -0.163788
+offset_bottom = 1.90198
+grow_vertical = 0
+theme_override_font_sizes/font_size = 70
+text = "Back"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="CanvasLayer/Pause menu landing/Main button navigation/VBoxContainer/Continue button" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause menu landing/Main button navigation/VBoxContainer/Stats button" to="." method="_on_stats_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Pause menu landing/Main button navigation/VBoxContainer/Quit button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Stats/Character buttons/Matthew Container/MatthewButton" to="CanvasLayer/Stats" method="_on_matthew_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Stats/Character buttons/Andrew Container/AndrewButton" to="CanvasLayer/Stats" method="_on_andrew_button_pressed"]
+[connection signal="visibility_changed" from="CanvasLayer/Stats/Stats container" to="CanvasLayer/Stats" method="_on_stats_container_visibility_changed"]
+[connection signal="pressed" from="CanvasLayer/Stats/Stats back button" to="." method="_on_stats_back_button_pressed"]

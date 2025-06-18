@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnuln3p7agmd7"]
+
+[ext_resource type="Script" uid="uid://djbb7bu7l64ai" path="res://Scripts/Systems/CutScene.gd" id="1_mi1d5"]
+[ext_resource type="Script" uid="uid://cnsieuy06rk58" path="res://Scripts/Systems/Dialogue/DialogueHolder.gd" id="2_adqpq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adqpq"]
+
+[node name="Cutscene" type="Area2D"]
+script = ExtResource("1_mi1d5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_adqpq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+
+[node name="Dialogue holders" type="Node" parent="."]
+
+[node name="Dialogue" type="Node" parent="Dialogue holders"]
+script = ExtResource("2_adqpq")
+
+[node name="Dialogue2" type="Node" parent="Dialogue holders"]
+script = ExtResource("2_adqpq")
+
+[node name="Dialogue3" type="Node" parent="Dialogue holders"]
+script = ExtResource("2_adqpq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,13 +1,55 @@
-[gd_scene load_steps=11 format=3 uid="uid://2g102h147q4w"]
+[gd_scene load_steps=19 format=3 uid="uid://2g102h147q4w"]
 
 [ext_resource type="PackedScene" uid="uid://gtktw85pan5s" path="res://Scenes/Entities/Player/PlayerMovement.tscn" id="1_psstf"]
 [ext_resource type="PackedScene" uid="uid://dh0lcm20254i1" path="res://Scenes/UI/PauseMenu.tscn" id="1_xtfh2"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_7kyso"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_3v22g"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_ffrec"]
-[ext_resource type="Texture2D" uid="uid://c4dfru4f3e0v4" path="res://icon.svg" id="6_ip8xt"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_7kyso"]
+[ext_resource type="PackedScene" uid="uid://bbdkyf4f6xx2g" path="res://Scenes/UI/DialogueHolder.tscn" id="2_oyfji"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="3_3v22g"]
+[ext_resource type="Texture2D" uid="uid://dd38mcqy2phdl" path="res://Art/GhgMgHkboAAeL4-.jpg" id="3_coi4m"]
+[ext_resource type="Texture2D" uid="uid://bvu4mmwpkdvhe" path="res://Art/Party members/image (1).png" id="3_o8yqa"]
+[ext_resource type="Texture2D" uid="uid://6wxqhlrid5aw" path="res://Art/Party members/heismay-noctule-from-metaphor-refantazio-v0-vyuuqbpsfx4e1.png" id="4_dnhxq"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="4_ffrec"]
 [ext_resource type="PackedScene" uid="uid://bug6htnqh072h" path="res://Scenes/UI/DialogueUI.tscn" id="7_5eob1"]
 [ext_resource type="PackedScene" uid="uid://dk6jo8iq8fj0q" path="res://Scenes/Door.tscn" id="8_jl6jx"]
+[ext_resource type="PackedScene" uid="uid://bnuln3p7agmd7" path="res://Scenes/CutScene.tscn" id="12_1mdm5"]
+[ext_resource type="PackedScene" uid="uid://c52xk0g6jrcw1" path="res://Scenes/UI/Overworld.tscn" id="13_8twrt"]
+
+[sub_resource type="Animation" id="Animation_1mdm5"]
+resource_name = "Opening"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../PlayerMovement:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 34), Vector2(498, 34), Vector2(498, 34), Vector2(498, 110)]
+}
+
+[sub_resource type="Animation" id="Animation_8twrt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../PlayerMovement:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 34)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7hgt6"]
+_data = {
+&"Opening": SubResource("Animation_1mdm5"),
+&"RESET": SubResource("Animation_8twrt")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x8m8y"]
 size = Vector2(1910, 1071)
@@ -32,6 +74,39 @@ position = Vector2(38.5, 38.5)
 
 [node name="Destination" parent="Doors/Door 1" index="1"]
 position = Vector2(332, 554)
+
+[node name="Conversation spots" type="Node" parent="."]
+
+[node name="Interaction Radius2" parent="Conversation spots" instance=ExtResource("2_oyfji")]
+position = Vector2(242, 96)
+battleAfter = true
+lineCount = 3
+lines = Array[String](["Oh great a weird talking white bat", "I am Eugrief ", "You grief?"])
+speakers = Array[String](["Silver", "Heismay", "Silver"])
+textures = Array[Texture2D]([ExtResource("3_o8yqa"), ExtResource("4_dnhxq"), ExtResource("3_o8yqa")])
+
+[node name="TextureRect" parent="Conversation spots/Interaction Radius2" index="0"]
+texture = ExtResource("3_coi4m")
+
+[node name="Cutscenes" type="Node" parent="."]
+
+[node name="Opening cutscene" parent="Cutscenes" node_paths=PackedStringArray("dialogue") instance=ExtResource("12_1mdm5")]
+position = Vector2(-95, 44)
+hasDialogue = true
+animationNames = Array[String](["Opening"])
+dictKey = "Opening"
+dialogue = [NodePath("Dialogue holders/Dialogue")]
+
+[node name="AnimationPlayer" parent="Cutscenes/Opening cutscene" index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_7hgt6")
+}
+
+[node name="Dialogue" parent="Cutscenes/Opening cutscene/Dialogue holders" index="0"]
+lineCount = 1
+lines = Array[String](["Hello there"])
+speakers = Array[String](["Unknown"])
+textures = Array[Texture2D]([ExtResource("3_o8yqa")])
 
 [node name="Test environment" type="ColorRect" parent="."]
 offset_right = 1914.0
@@ -67,10 +142,6 @@ one_way_collision = true
 position = Vector2(1, 34)
 speed = 100.0
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(302, 140)
-texture = ExtResource("6_ip8xt")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
 position = Vector2(322, 181)
@@ -99,8 +170,14 @@ follow_damping = true
 follow_damping_value = Vector2(0.2, 0.2)
 limit_target = NodePath("../Map determiner")
 
-[node name="Pause Menu" parent="." instance=ExtResource("1_xtfh2")]
+[node name="Pause Menu" parent="." node_paths=PackedStringArray("overworldUI") instance=ExtResource("1_xtfh2")]
+overworldUI = NodePath("../Overworld/CanvasLayer")
 
 [node name="Dialogue" parent="." instance=ExtResource("7_5eob1")]
 
+[node name="Overworld" parent="." instance=ExtResource("13_8twrt")]
+
 [editable path="Doors/Door 1"]
+[editable path="Conversation spots/Interaction Radius2"]
+[editable path="Cutscenes/Opening cutscene"]
+[editable path="Overworld"]

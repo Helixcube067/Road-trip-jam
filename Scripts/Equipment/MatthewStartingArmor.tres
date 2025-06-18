@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ArmorType" load_steps=2 format=3 uid="uid://c5dw0c1o0mkj5"]
+
+[ext_resource type="Script" uid="uid://cp1rmxnpay5kx" path="res://Scripts/Equipment/Armor.gd" id="1_0v5mg"]
+
+[resource]
+script = ExtResource("1_0v5mg")
+defense = 1
+slashAffinity = 0.0
+bluntAffinity = 0.0
+pierceAffinity = 0.0
+TYPE = "Armor"
+name = "Worn vest"
+metadata/_custom_type_script = "uid://cp1rmxnpay5kx"

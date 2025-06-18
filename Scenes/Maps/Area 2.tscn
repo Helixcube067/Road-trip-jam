@@ -1,16 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://rf6ifda1wm7r"]
+[gd_scene load_steps=14 format=3 uid="uid://rf6ifda1wm7r"]
 
 [ext_resource type="PackedScene" uid="uid://gtktw85pan5s" path="res://Scenes/Entities/Player/PlayerMovement.tscn" id="1_h4l2k"]
-[ext_resource type="Texture2D" uid="uid://c4dfru4f3e0v4" path="res://icon.svg" id="2_21jev"]
+[ext_resource type="Texture2D" uid="uid://c4dfru4f3e0v4" path="res://Art/icon.svg" id="2_21jev"]
 [ext_resource type="PackedScene" uid="uid://bbdkyf4f6xx2g" path="res://Scenes/UI/DialogueHolder.tscn" id="3_0rtuj"]
-[ext_resource type="Texture2D" uid="uid://bvu4mmwpkdvhe" path="res://image (1).png" id="4_o5xwx"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_hmapm"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_v3svt"]
-[ext_resource type="Script" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_ix623"]
+[ext_resource type="Texture2D" uid="uid://bvu4mmwpkdvhe" path="res://Art/Party members/image (1).png" id="4_o5xwx"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="5_hmapm"]
+[ext_resource type="Script" uid="uid://bhexx6mj1xv3q" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="6_v3svt"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="7_ix623"]
 [ext_resource type="PackedScene" uid="uid://dk6jo8iq8fj0q" path="res://Scenes/Door.tscn" id="8_lwg8d"]
 [ext_resource type="PackedScene" uid="uid://dh0lcm20254i1" path="res://Scenes/UI/PauseMenu.tscn" id="9_epojf"]
 [ext_resource type="PackedScene" uid="uid://bug6htnqh072h" path="res://Scenes/UI/DialogueUI.tscn" id="10_toimp"]
-[ext_resource type="Script" path="res://Scripts/Systems/Scene Changing/SceneChanger.gd" id="11_fojsu"]
 [ext_resource type="PackedScene" uid="uid://cxfimvr7s6idc" path="res://Scenes/UI/Fade Transition.tscn" id="12_ecvou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_45o5p"]
@@ -115,9 +114,6 @@ tween_on_load = false
 follow_damping = true
 follow_damping_value = Vector2(0.2, 0.2)
 limit_target = NodePath("../Map determiner")
-
-[node name="Scene Changer" type="Node" parent="."]
-script = ExtResource("11_fojsu")
 
 [node name="Fade Transition" parent="." instance=ExtResource("12_ecvou")]
 

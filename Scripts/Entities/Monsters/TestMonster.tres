@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="monster" load_steps=4 format=3 uid="uid://0faocqbiaprr"]
+
+[ext_resource type="Script" uid="uid://dk6qdtbr6nfeb" path="res://Scripts/Entities/Monster.gd" id="1_ilqci"]
+[ext_resource type="Texture2D" uid="uid://dt26von77s1kj" path="res://Art/Enemies/ZombiA.png" id="1_movrw"]
+[ext_resource type="Script" uid="uid://brl57foj4ev4r" path="res://Scripts/Skills.gd" id="2_kb1cf"]
+
+[resource]
+script = ExtResource("1_ilqci")
+expGiven = 5
+goldGiven = 3
+potentialDrops = []
+icon = ExtResource("1_movrw")
+unitName = ""
+level = 0
+maxHP = 0
+currentHP = 0
+strength = 0
+vitality = 0
+dexterity = 0
+speed = 0
+isDead = false
+slashAffinity = 0.0
+bluntAffinity = 0.0
+pierceAffinity = 0.0
+skillList = Array[ExtResource("2_kb1cf")]([])

@@ -1,6 +1,6 @@
 extends Node
 #Touches dialogue manager and holder, pause menu, and player movement 
-enum States {IDLE, MOVING, CONVERSATING, UINAVINGATION}
+enum States {IDLE, MOVING, CONVERSATING, UINAVINGATION, COMBAT}
 var currentState
 
 func _ready():

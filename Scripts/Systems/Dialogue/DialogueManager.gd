@@ -24,7 +24,11 @@ func StartDialogue(dialogue : dialogueHolder):
 		waitCheck = await %"Continue button".pressed
 		#waitCheck = await Input.is_action_pressed("Interact")
 	%CanvasLayer.hide();
-	StateMachine.ChangeState(StateMachine.States.IDLE)
+	if(dialogue.battleAfter):
+		print("Proceed to battle")
+		StateMachine.ChangeState(StateMachine.States.COMBAT)
+	else:
+		StateMachine.ChangeState(StateMachine.States.IDLE)
 	
 func DialogueSignalHelper(thing : dialogueHolder):
 	StartDialogue(thing)

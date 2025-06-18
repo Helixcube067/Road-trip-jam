@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://olwmo7dhguys"
-path="res://.godot/imported/ExclamationPoint.png-54a005d4869b26d127cacb098f87a2ef.ctex"
+uid="uid://cyg318cngyrem"
+path="res://.godot/imported/ZombiB.png-27babec39b50a23bdb78a848fa5e849c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ExclamationPoint.png"
-dest_files=["res://.godot/imported/ExclamationPoint.png-54a005d4869b26d127cacb098f87a2ef.ctex"]
+source_file="res://Art/Enemies/ZombiB.png"
+dest_files=["res://.godot/imported/ZombiB.png-27babec39b50a23bdb78a848fa5e849c.ctex"]
 
 [params]
 

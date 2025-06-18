@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dk6jo8iq8fj0q"]
 
-[ext_resource type="Script" path="res://Scripts/Systems/Scene Changing/Door.gd" id="1_meour"]
-[ext_resource type="Texture2D" uid="uid://c4dfru4f3e0v4" path="res://icon.svg" id="2_w7w0q"]
+[ext_resource type="Script" uid="uid://dk4bsuimwh0lw" path="res://Scripts/Systems/Scene Changing/Door.gd" id="1_meour"]
+[ext_resource type="Texture2D" uid="uid://c4dfru4f3e0v4" path="res://Art/icon.svg" id="2_w7w0q"]
 [ext_resource type="PackedScene" uid="uid://cxfimvr7s6idc" path="res://Scenes/UI/Fade Transition.tscn" id="3_pxsjr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wpx8m"]
@@ -12,7 +12,7 @@ resource_name = "Fade in"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6n6ih"]
 _data = {
-"Fade in": SubResource("Animation_lyibe")
+&"Fade in": SubResource("Animation_lyibe")
 }
 
 [node name="Door" type="Area2D" node_paths=PackedStringArray("fader")]

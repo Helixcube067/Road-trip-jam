@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="PartyMember" load_steps=6 format=3 uid="uid://2ayygwt76t5x"]
+
+[ext_resource type="Script" uid="uid://7syl1iwv7l2x" path="res://Scripts/Entities/PartyMember.gd" id="1_rme7d"]
+[ext_resource type="Resource" uid="uid://c5dw0c1o0mkj5" path="res://Scripts/Equipment/MatthewStartingArmor.tres" id="1_u2usw"]
+[ext_resource type="Script" uid="uid://brl57foj4ev4r" path="res://Scripts/Skills.gd" id="2_7s885"]
+[ext_resource type="Texture2D" uid="uid://bvu4mmwpkdvhe" path="res://Art/Party members/image (1).png" id="2_22ee3"]
+[ext_resource type="Resource" uid="uid://cdv4nd0relln1" path="res://Scripts/Equipment/MatthewStartingWeapon.tres" id="2_gfqru"]
+
+[resource]
+script = ExtResource("1_rme7d")
+maxMP = 20
+currentMP = 20
+equippedWeapon = ExtResource("2_gfqru")
+equippedArmor = ExtResource("1_u2usw")
+icon = ExtResource("2_22ee3")
+unitName = "Matthew"
+level = 1
+maxHP = 25
+currentHP = 25
+strength = 3
+vitality = 3
+dexterity = 5
+speed = 5
+isDead = false
+slashAffinity = 1.0
+bluntAffinity = 1.0
+pierceAffinity = 1.0
+skillList = Array[ExtResource("2_7s885")]([])
+metadata/_custom_type_script = "uid://7syl1iwv7l2x"

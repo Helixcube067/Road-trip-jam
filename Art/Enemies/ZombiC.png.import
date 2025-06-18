@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dd38mcqy2phdl"
-path="res://.godot/imported/GhgMgHkboAAeL4-.jpg-a2552209a5f2b4220485de43641c6f6c.ctex"
+uid="uid://b20cwys5wuwil"
+path="res://.godot/imported/ZombiC.png-4b47fae787c75ff24939e89b7525a260.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GhgMgHkboAAeL4-.jpg"
-dest_files=["res://.godot/imported/GhgMgHkboAAeL4-.jpg-a2552209a5f2b4220485de43641c6f6c.ctex"]
+source_file="res://Art/Enemies/ZombiC.png"
+dest_files=["res://.godot/imported/ZombiC.png-4b47fae787c75ff24939e89b7525a260.ctex"]
 
 [params]
 

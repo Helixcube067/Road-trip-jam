@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @export var speed : float = 50;
 var door
-# HACK Heres a slight bug here for checking the moving state. Might remove it with this iteration
 #this is to check if the player was traveling and if they were teleport them into the right location
 func _ready():
 	if(LocationHelper.traveling):
